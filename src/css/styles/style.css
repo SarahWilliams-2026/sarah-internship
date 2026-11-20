@@ -8238,6 +8238,11 @@ header.header-mobile #mainmenu > li > span {
   outline: none;
 }
 
+.slick-prev:before,
+.slick-next:before {
+  color: black;
+}
+
 @-webkit-keyframes scaleIn {
   from {
     opacity: 1;
