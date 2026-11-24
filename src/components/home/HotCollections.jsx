@@ -6,6 +6,12 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { Link } from "react-router-dom";
 
+const SkeletonLoader = () => {
+  return (
+    <div className="skeleton-box" style={{ width: '200px', height: '300px', margin: '10px' }}></div>
+  );
+};
+
 const HotCollections = () => {
   const [nftData, setNftData] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -35,7 +41,16 @@ const HotCollections = () => {
     slidesToScroll: 1,
   };
 
-  if (loading) return <p>Loading data...</p>;
+  if (loading) {
+    return (
+      <Slider {...settings}>
+        {Array.from({ length: 4 }).map((_, index) => (
+          <SkeletonLoader key={index} />
+        ))}
+      </Slider>
+    );
+  }
+  
   if (error) return <p>Error: {error}</p>;
 
   return (

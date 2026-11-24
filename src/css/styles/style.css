@@ -8243,6 +8243,11 @@ header.header-mobile #mainmenu > li > span {
   color: black;
 }
 
+#section-collections .slick-prev:before,
+#section-collections .slick-next:before {
+  color: black;
+}
+
 @-webkit-keyframes scaleIn {
   from {
     opacity: 1;
